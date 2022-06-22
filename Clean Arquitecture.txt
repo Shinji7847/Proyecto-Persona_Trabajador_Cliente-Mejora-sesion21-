@@ -1,0 +1,37 @@
+La arquitectura de una aplicación es una capa por debajo del diseño,
+que determina el cómo funciona dicho programa.
+Una arquitectura limpia determina que las aplicaciones funcionen de una manera correcta.
+Esta determina que los proyectos se desarrollen en capas contiguas(solo intercomunicadas con las contiguas,
+sin saltearse capas).
+
+Esto se utiliza en el desarrollo de aplicaciones multicapa, donde se organiza todo en capas y así se evita que ciertas capas,
+como por ejemplo la capa de entidades, o la entrada a nuestra aplicación se pueda comunicar directamente con base de datos
+sin antes pasar por otros pasos previos.
+
+Esto determina una clara separación de principios.
+Dicha separación en capas se divide en:
+- 1 - Capa de Entidades: Define la lógica del negocio.
+- 2 - Capa de Casos de Uso: Define las reglas de la aplicación.
+- 3 - Capa de Controladores: Interfaces adaptadoras.
+- 4 - Capa de Otros (Frameworks y Drivers): Comunmente comunica con DDBB.
+
+Implementación de principios SOLID para una arquitectura limpia:
+S - Principio de responsabilidad única (Una clase, componente o servicio debe ser responsable solo de una cosa)
+O - Principio de Open-Close (Las entidades tienen que estar abiertas a la hora de extender,
+pero cerradas cuando se quiera modificar. Uso de clases abstractas)
+L - Principio de sustitución de Liskov (Una clase se debe poder sustituir por la clase padre)
+I - Principio de segregación de interfaces (Una clase no debe depender de una interfaz que no va a usar)
+D - Principio de inversión de dependencias (Las dependencias se deben abstraer)
+
+¿Cuándo utilizaríamos arquitectura limpia?
+Implementaríamos esto por varios beneficios, por ejemplo: Si en algún momento (y no se planeo en un comienzo) es necesario
+migrar a otra base de datos que permitir expandir el negocio y la capacidad de una aplicación.
+Otro caso es ante la posible necesidad de cambiar de versiones de frameworks. Para esto es mucho más eficiente trabajar
+con arquitectura limpia.
+
+¿Cómo implementarla?
+En un principio seguiría los principios SOLID, con los cuales uno debe cumplir ciertos requisitos para llegar a una arquitectura limpia.
+Distribuiría las acciones en distintas clases (responsabilidad única), desarrollaría una jerarquía de clases,
+con lo cual unas hereden de otras (clases padre e hijo) arrancando por la implementación de clases abstractas como base.
+Además de esto, la jerarquía hará posible que cualquier clase pueda ser reemplazada por su clase padre.
+También se debe trabajar con interfaces, las cuales solo deben ser implementadas por las clases que necesiten usarlas.
